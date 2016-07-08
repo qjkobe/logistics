@@ -50,12 +50,12 @@ $_SESSION['id']=$id;
                     <li>
                         <a href="#">
                             <div>
-                                <strong>John Doe</strong>
+                                <strong>金大仙</strong>
                                     <span class="pull-right text-muted">
                                         <em>Today</em>
                                     </span>
                             </div>
-                            <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                            <div>以后会做成提醒类型的消息</div>
                         </a>
                     </li>
 
@@ -192,7 +192,7 @@ $_SESSION['id']=$id;
                     <a href="orderlist.php"><i class="fa fa-table"></i> 订单详细</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-edit"></i> 个人信息修改 </a>
+                    <a href="info.php"><i class="fa fa-edit"></i> 个人信息修改 </a>
                 </li>
 
 
@@ -326,86 +326,6 @@ $_SESSION['id']=$id;
 <script src="assets/js/custom-scripts.js"></script>
 
 
-</body>
-</html>
-
-<?php /**
- * Created by PhpStorm.
- * User: qjkobe
- * Date: 2016/7/4
- * Time: 13:33
- */
-session_start();
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-<?php
-if (isset($_SESSION['username']) && $_SESSION['type'] == 1) {
-    echo "用户已登录" . $_SESSION['username'];
-} else {
-    echo "请先登录";
-}
-include "function/function.php";
-include "../goods/function.php";
-$errormsg = "";
-$sid = getId($_SESSION['username']);
-$gid = showSGoods();
-echo "id等于:" . $sid;
-$cid[0] = "";
-$weight[0] = "";
-$tid[0] = "";
-$status[0] = "";
-$cname[0] = "";
-if (showSGoods() == "尚未待处理物品") {
-    $errormsg = "没有待处理物品啦^_^";
-    $gid[0] = "";
-} else {
-    for ($i = 0; $i < count($gid); $i++) {
-        $res = getGoods($gid[$i]);
-        $cid[$i] = $res['cid'];
-        $weight[$i] = $res['weight'];
-        $tid[$i] = $res['tid'];
-        $status[$i] = $res['status'];
-    }
-    for ($i = 0; $i < count($cid); $i++) {
-        $res = getClientdata($cid[$i]);
-        $cname[$i] = $res['username'];
-    }
-}
-
-?>
-<table border="1">
-    <tr>
-        <td>客户姓名</td>
-        <td>物品id</td>
-        <td>重量</td>
-        <td>类型</td>
-        <td>待运状态</td>
-        <td>添加订单</td>
-    </tr>
-    <?php
-    for ($i = 0; $i < count($gid); $i++) {
-        echo "<tr>";
-        echo "<td>" . $cname[$i] . "</td>";
-        echo "<td>" . $gid[$i] . "</td>";
-        echo "<td>" . $weight[$i] . "</td>";
-        echo "<td>" . $tid[$i] . "</td>";
-        echo "<td>" . $status[$i] . "</td>";
-        echo "<td><form method='post'action='orderadd.php'> " .
-            "<input type='hidden' name='gid' value='$gid[$i]'>" .
-            "<input type='hidden' name='cid' value='$cid[$i]'>" .
-            "<input type='submit' value='添加'>" .
-            "</form></td>";
-        echo "</tr>";
-    }
-    echo $errormsg;
-    ?>
-</table>
 </body>
 </html>
 

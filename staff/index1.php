@@ -15,7 +15,7 @@ $_SESSION['id']=$id;
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>管理员后台管理界面</title>
+    <title>员工后台管理界面</title>
     <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
@@ -50,12 +50,12 @@ $_SESSION['id']=$id;
                     <li>
                         <a href="#">
                             <div>
-                                <strong>John Doe</strong>
+                                <strong>金大仙</strong>
                                     <span class="pull-right text-muted">
                                         <em>Today</em>
                                     </span>
                             </div>
-                            <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                            <div>以后会做成提醒类型的消息</div>
                         </a>
                     </li>
 
@@ -192,7 +192,7 @@ $_SESSION['id']=$id;
                     <a href="orderlist.php"><i class="fa fa-table"></i> 订单详细</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-edit"></i> 个人信息修改 </a>
+                    <a href="info.php"><i class="fa fa-edit"></i> 个人信息修改 </a>
                 </li>
 
 

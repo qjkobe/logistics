@@ -24,6 +24,7 @@ if($res=="用户名重复"){
 }else{
     $res = add($username, $password);
     if ($res == "插入成功") {
+        echo "<script>alert('注册成功!');;</script>";
         header("refresh:0;url=../index.php");
     }else{
         $errormsg = "数据库错误，请联系管理员";

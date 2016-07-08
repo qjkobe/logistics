@@ -16,18 +16,13 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-include "client/function/function.php";
-//$id = getId("qjkobe");
-//echo $id;
-$sql = "select * from client where username='qjkobe'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo $row['CID'];
-    }
-    $conn->close();
-} else {
-    echo "没有";
-    $conn->close();
-}
-//$conn->close();
+include "staff/function/function.php";
+$avatar="avatar/1467945816.jpg";
+$name="金鱼";
+$username = "qjkobe";
+$sql = "update staff set avatar='$avatar', name='金宇'"
+    . "where username='qjkobe'";
+
+$conn->query($sql);
+echo "完成";
+$conn->close();

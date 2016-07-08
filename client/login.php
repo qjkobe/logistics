@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['username']=$username;
             $_SESSION['type']=2;
-            header("refresh:3;url=index.php");
+            header("refresh:3;url=index1.php");
         }else if ($result=="没有此用户名") {
             $errormsg = "用户名不存在";
         } else {

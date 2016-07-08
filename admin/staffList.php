@@ -47,12 +47,12 @@ session_start();
                     <li>
                         <a href="#">
                             <div>
-                                <strong>John Doe</strong>
+                                <strong>金大仙</strong>
                                     <span class="pull-right text-muted">
                                         <em>Today</em>
                                     </span>
                             </div>
-                            <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                            <div>以后会做成提醒类型的消息</div>
                         </a>
                     </li>
 
@@ -232,7 +232,7 @@ session_start();
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        订单详细 <small>欢迎你<?php echo $_SESSION['username']; ?></small>
+                        员工列表 <small>欢迎你<?php echo $_SESSION['username']; ?></small>
                     </h1>
                 </div>
             </div>
@@ -243,7 +243,7 @@ session_start();
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            全部订单
+                            全部员工
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -264,7 +264,7 @@ session_start();
                                     <?php
                                     include "function/function.php";
                                     $res=showStaff();
-                                    for ($i = 0; $i < count($res)&&$i<5; $i++) {
+                                    for ($i = 0; $i < count($res); $i++) {
                                         echo "<tr>";
                                         $res2 = getStaff($res[$i]);
                                         $sid[$i]=getSId($res[$i]);
@@ -275,7 +275,9 @@ session_start();
                                         echo "<td>".$res2['phone']."</td>";
                                         echo "<td>".$res2['contro']."</td>";
                                         echo "<td>".'<img src="../'.$res2['avatar'].'" width=35 height=35>'."</td>";
-                                        echo "<td>".'<a href="#" class="btn btn-info">info</a>'."</td>";
+                                        echo "<td>"."<form action='staffsavemid.php' method='post'><input type='hidden' name='staff' value='$res[$i]'>".
+                                            "<input type='submit' class='btn btn-info' value='info'>".
+                                            "</form>"."</td>";
                                         echo "</tr>";
                                     }
                                     ?>

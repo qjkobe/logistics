@@ -15,7 +15,7 @@ $_SESSION['id']=$id;
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>管理员后台管理界面</title>
+    <title>员工后台管理界面</title>
     <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
@@ -29,6 +29,19 @@ $_SESSION['id']=$id;
 </head>
 
 <body>
+<?php
+$username = $name = $mail = $phone = $contro = $avatar = "";
+$res = getdata($_SESSION["username"]);
+if ($res == "没有此用户名") {
+    echo "黑客异常";
+}else{
+    $name = $res['name'];
+    $mail = $res['mail'];
+    $phone = $res['phone'];
+    $contro = $res['contro'];
+    $avatar = $res['avatar'];
+}
+?>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -179,17 +192,17 @@ $_SESSION['id']=$id;
                     <a href="index1.php"><i class="fa fa-dashboard"></i> 首页仪表盘</a>
                 </li>
                 <li>
-                    <a href="goodslist.php"><i class="fa fa-desktop"></i> 我的物品</a>
+                    <a href="goodslist.php"><i class="fa fa-desktop"></i> 物品信息</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="orderlist.php"><i class="fa fa-bar-chart-o"></i> 我的订单</a>
+                    <a class="active-menu" href="clientList.php"><i class="fa fa-bar-chart-o"></i> 客户信息</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-qrcode"></i> 订单详细</a>
+                    <a href="#"><i class="fa fa-qrcode"></i> 地点信息</a>
                 </li>
 
                 <li>
-                    <a href="index.php"><i class="fa fa-table"></i> 物品提交</a>
+                    <a href="orderlist.php"><i class="fa fa-table"></i> 订单详细</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-edit"></i> 个人信息修改 </a>
@@ -232,12 +245,13 @@ $_SESSION['id']=$id;
 
     </nav>
     <!-- /. NAV SIDE  -->
+
     <div id="page-wrapper" >
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        我的物品 <small>欢迎你<?php echo $_SESSION['username']; ?></small>
+                        订单详细 <small>欢迎你<?php echo $_SESSION['username']; ?></small>
                     </h1>
                 </div>
             </div>
@@ -248,56 +262,53 @@ $_SESSION['id']=$id;
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            我的订单
+                            全部订单
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                     <tr>
-                                        <th>订单id</th>
-                                        <th>员工id</th>
-                                        <th>物品id</th>
-                                        <th>路线id</th>
-                                        <th>价格</th>
-                                        <th>下单时间</th>
-                                        <th>订单状态</th>
-                                        <th>目的地</th>
-                                        <th>接收订单</th>
+                                        <th>客户id</th>
+                                        <th>用户名</th>
+                                        <th>公司</th>
+                                        <th>电话</th>
+                                        <th>主页</th>
+                                        <th>邮箱</th>
+                                        <th>头像</th>
+                                        <th>修改</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    include "../order/function/function.php";
-                                    $oid = clientsearch($id);
-                                    if ($oid == "尚未有订单") {
-                                        $errormsg = "您尚未有订单";
-                                        $oid[0] = "";
-                                    }else{
-                                        for ($i = 0; $i < count($oid); $i++) {
-                                            $res = searchOrder($oid[$i]);
-                                            echo "<tr>";
-                                            echo '<td>'.$oid[$i].'</td>';
-                                            echo '<td>'.$res['sid'].'</td>';
-                                            echo '<td>'.$res['gid'].'</td>';
-                                            echo '<td>'.$res['rid'].'</td>';
-                                            echo '<td>'.$res['expense'].'</td>';
-                                            echo '<td>'.$res['xiadantime'].'</td>';
-                                            echo '<td>'.$res['status'].'</td>';
-                                            echo '<td>'.$res['destination'].'</td>';
-                                            echo "<td><form method='post' action='orderaccept.php'>" .
-                                                "<input type='hidden' name='oid' value='$oid[$i]'>" .
-                                                "<input type='hidden' name='gid' value='$gid[$i]'>" .
-                                                "<input type='submit' class='btn btn-success' value='接受'>" .
-                                                "</form></td>";
-                                            echo "</tr>";
-                                        }
+                                    $res=showClient();
+                                    for ($i = 0; $i < count($res); $i++) {
+                                        echo "<tr>";
+                                        $res2 = getClient($res[$i]);
+                                        $cid[$i]=getCId($res[$i]);
+                                        echo "<td><a href='#'>".$cid[$i]."</a></td>";//点击这里可以查看详细信息并进行修改
+                                        echo "<td>".$res[$i]."</td>";
+                                        echo "<td>".$res2['company']."</td>";
+                                        echo "<td>".$res2['phone']."</td>";
+                                        echo "<td>".$res2['index']."</td>";
+                                        echo "<td>".$res2['mail']."</td>";
+                                        echo "<td>".'<img src="../'.$res2['avatar'].'" width=35 height=35>'."</td>";
+                                        echo "<td>"."<form action='clientsavemid.php' method='post'><input type='hidden' name='staff' value='$res[$i]'>".
+                                            "<input type='submit' class='btn btn-info' value='info'>".
+                                            "</form>"."</td>";
+                                        echo "</tr>";
                                     }
                                     ?>
                                     </tbody>
                                 </table>
                             </div>
-
+                            <script language="JavaScript">
+                                function saveClient(){
+                                <?php
+                                    $_SESSION['client']=$res[$i];
+                                    ?>
+                                }
+                            </script>
                         </div>
                     </div>
                     <!--End Advanced Tables -->

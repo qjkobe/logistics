@@ -53,13 +53,30 @@ function changePass($username, $password)
     }
 }
 
-function filldata($username, $name, $mail, $phone, $contro, $avatar)
+function filldata($username, $name, $mail, $phone, $contro)
 {
     $conn = dbconn();
     if ($conn->connect_error) {
         die("Connetction failed: " . $conn->connect_error);
     }
-    $sql = "update staff set name='$name',mail='$mail',phone='$phone',contro='$contro',avatar='$avatar'"
+    $sql = "update staff set name='$name',mail='$mail',phone='$phone',contro='$contro'"
+        . "where username='$username'";
+    if ($conn->query($sql) === true) {
+        $conn->close();
+        return "修改成功";
+    } else {
+        $conn->close();
+        return "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+function setavatar($username, $avatar)
+{
+    $conn = dbconn();
+    if ($conn->connect_error) {
+        die("Connetction failed: " . $conn->connect_error);
+    }
+    $sql = "update staff set avatar='$avatar'"
         . "where username='$username'";
     if ($conn->query($sql) === true) {
         $conn->close();
@@ -211,6 +228,42 @@ function getClient($username)
     } else {
         $conn->close();
         return "没有此用户名";//此情况不该出现
+    }
+}
+
+
+function fillCdata($username, $company, $phone, $index, $mail)
+{
+    $conn = dbconn();
+    if ($conn->connect_error) {
+        die("Connetction failed: " . $conn->connect_error);
+    }
+    $sql = "update client set company='$company',phone='$phone',pindex='$index',mail='$mail'"
+        . "where username='$username'";
+    if ($conn->query($sql) === true) {
+        $conn->close();
+        return "修改成功";
+    } else {
+        $conn->close();
+        return "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+
+function setCavatar($username, $avatar)
+{
+    $conn = dbconn();
+    if ($conn->connect_error) {
+        die("Connetction failed: " . $conn->connect_error);
+    }
+    $sql = "update client set avatar='$avatar'"
+        . "where username='$username'";
+    if ($conn->query($sql) === true) {
+        $conn->close();
+        return "修改成功";
+    } else {
+        $conn->close();
+        return "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 

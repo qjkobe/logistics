@@ -15,7 +15,7 @@ $_SESSION['id']=$id;
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>管理员后台管理界面</title>
+    <title>员工后台管理界面</title>
     <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
@@ -29,6 +29,19 @@ $_SESSION['id']=$id;
 </head>
 
 <body>
+<?php
+$username = $name = $mail = $phone = $contro = $avatar = "";
+$res = getdata($_SESSION["username"]);
+if ($res == "没有此用户名") {
+    echo "黑客异常";
+}else{
+    $name = $res['name'];
+    $mail = $res['mail'];
+    $phone = $res['phone'];
+    $contro = $res['contro'];
+    $avatar = $res['avatar'];
+}
+?>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -179,17 +192,17 @@ $_SESSION['id']=$id;
                     <a href="index1.php"><i class="fa fa-dashboard"></i> 首页仪表盘</a>
                 </li>
                 <li>
-                    <a href="goodslist.php"><i class="fa fa-desktop"></i> 我的物品</a>
+                    <a href="goodslist.php"><i class="fa fa-desktop"></i> 物品信息</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="orderlist.php"><i class="fa fa-bar-chart-o"></i> 我的订单</a>
+                    <a class="active-menu" href="clientList.php"><i class="fa fa-bar-chart-o"></i> 客户信息</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-qrcode"></i> 订单详细</a>
+                    <a href="#"><i class="fa fa-qrcode"></i> 地点信息</a>
                 </li>
 
                 <li>
-                    <a href="index.php"><i class="fa fa-table"></i> 物品提交</a>
+                    <a href="orderlist.php"><i class="fa fa-table"></i> 订单详细</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-edit"></i> 个人信息修改 </a>
@@ -237,78 +250,112 @@ $_SESSION['id']=$id;
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        我的物品 <small>欢迎你<?php echo $_SESSION['username']; ?></small>
+                        客户信息 <small>欢迎你<?php echo $_SESSION['username']; ?></small>
                     </h1>
                 </div>
             </div>
             <!-- /. ROW  -->
-
             <div class="row">
-                <div class="col-md-12">
-                    <!-- Advanced Tables -->
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            我的订单
+                            客户信息
                         </div>
+                        <?php
+                        $client = $_SESSION['client'];
+                        $Cres = getClient($client);
+                        ?>
                         <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                    <tr>
-                                        <th>订单id</th>
-                                        <th>员工id</th>
-                                        <th>物品id</th>
-                                        <th>路线id</th>
-                                        <th>价格</th>
-                                        <th>下单时间</th>
-                                        <th>订单状态</th>
-                                        <th>目的地</th>
-                                        <th>接收订单</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    include "../order/function/function.php";
-                                    $oid = clientsearch($id);
-                                    if ($oid == "尚未有订单") {
-                                        $errormsg = "您尚未有订单";
-                                        $oid[0] = "";
-                                    }else{
-                                        for ($i = 0; $i < count($oid); $i++) {
-                                            $res = searchOrder($oid[$i]);
-                                            echo "<tr>";
-                                            echo '<td>'.$oid[$i].'</td>';
-                                            echo '<td>'.$res['sid'].'</td>';
-                                            echo '<td>'.$res['gid'].'</td>';
-                                            echo '<td>'.$res['rid'].'</td>';
-                                            echo '<td>'.$res['expense'].'</td>';
-                                            echo '<td>'.$res['xiadantime'].'</td>';
-                                            echo '<td>'.$res['status'].'</td>';
-                                            echo '<td>'.$res['destination'].'</td>';
-                                            echo "<td><form method='post' action='orderaccept.php'>" .
-                                                "<input type='hidden' name='oid' value='$oid[$i]'>" .
-                                                "<input type='hidden' name='gid' value='$gid[$i]'>" .
-                                                "<input type='submit' class='btn btn-success' value='接受'>" .
-                                                "</form></td>";
-                                            echo "</tr>";
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" method="post" action="clientsave.php">
+                                        <div class="form-group">
+                                            <label>客户id</label>
+                                            <p class="form-control-static"><?php echo getCId($client);; ?></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>用户名</label>
+                                            <p class="form-control-static"><?php echo $client; ?></p>
+                                        </div>
+                                        <input type="hidden" name="Cusername" value="<?php echo $client; ?>">
+                                        <div class="form-group">
+                                            <label>公司</label>
+                                            <input class="form-control" name="company" placeholder="真实姓名" value=<?php echo "\"".$Cres['company']."\""?>>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>电话</label>
+                                            <input class="form-control" name="phone" placeholder="邮箱" value=<?php echo "\"".$Cres['phone']."\""?>>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>主页</label>
+                                            <input class="form-control" name="index" placeholder="电话" value=<?php echo "\"".$Cres['index']."\""?>>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>邮箱</label>
+                                            <input class="form-control" name="mail" placeholder="电话" value=<?php echo "\"".$Cres['mail']."\""?>>
+                                        </div>
+                                        <button type="submit" class="btn btn-default">保存</button>
+                                        <button type="reset" class="btn btn-default">全部重置</button>
+                                        <?php
+                                        if($_SESSION['Cerrormsg']!==""){
+                                            if ($_SESSION['Cerrormsg'] == "修改成功") {
+                                                echo '<div class="alert alert-success">';
+                                                echo "<strong>完成！</strong>".$_SESSION['Cerrormsg'];
+                                                echo "</div>";
+                                                $_SESSION['Cerrormsg'] = "";
+                                            }else{
+                                                echo '<div class="alert alert-danger">';
+                                                echo "<strong>错误！</strong>".$_SESSION['Cerrormsg'];
+                                                echo "</div>";
+                                                $_SESSION['Cerrormsg'] = "";
+                                            }
                                         }
-                                    }
-                                    ?>
-                                    </tbody>
-                                </table>
+                                        ?>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <div class="col-lg-6">
+                                    <form role="form" method="post" action="../util/fileupload.php" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>头像上传</label><br>
+                                            <?php echo '<img src="../'.$Cres['avatar'].'" width=300 height=300>';?>
+                                            <input type="file" name="file">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">保存</button>
+                                        <?php
+                                        if($_SESSION['uploadError']!=""){
+                                            echo '<div class="alert alert-danger">';
+                                            echo "<strong>错误！</strong>".$_SESSION['uploadError'];
+                                            echo "</div>";
+                                            $_SESSION['uploadError']="";
+                                        }else if($_SESSION['path']!==""){
+                                            echo '<div class="alert alert-success">';
+                                            echo "<strong>完成！</strong>"."刷新查看新头像";
+                                            echo "</div>";
+                                            $tmp=setavatar($client, $_SESSION['path']);
+                                            $_SESSION['path'] = "";
+                                        }
+                                        ?>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
                             </div>
-
+                            <!-- /.row (nested) -->
                         </div>
+                        <!-- /.panel-body -->
                     </div>
-                    <!--End Advanced Tables -->
+                    <!-- /.panel -->
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
-
-
+            <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
         </div>
-        <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
+        <!-- /. PAGE INNER  -->
     </div>
-    <!-- /. PAGE INNER  -->
+    <!-- /. PAGE WRAPPER  -->
+
 </div>
 <!-- /. PAGE WRAPPER  -->
 <!-- /. WRAPPER  -->
