@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Font Awesome -->
     <link href="font/css/font-awesome.min.css" rel="stylesheet">
+    <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         //显示灰色 jQuery 遮罩层
@@ -49,6 +50,9 @@
                 width:bw,
                 display:"block"
             });
+            $("#firstname").val("");
+            $("#password").val("");
+            $(".alert").hide();
             $("#dialog").show();
         }
         //关闭灰色 jQuery 遮罩
@@ -92,8 +96,8 @@
             border-radius:5px;
             display:none;
         }
-        #close { background:url(img/close.jpg); position:absolute; right:10px; top:10px;}
-        #close:hover{background: url(img/close_hover.jpg)}
+        /*#close { background:url(img/close.jpg); position:absolute; right:10px; top:10px;}*/
+        /*#close:hover{background: url(img/close_hover.jpg)}*/
         #dialog p {
         }
 
@@ -437,18 +441,18 @@
     <div id="dialog" class="panel">
         <p class="close"><a id="close" href="front!index.action" onclick="closeBg();"></a></p>
         <h2 class="text-center panel-heading">登录</h2>
-        <form class="form-horizontal" role="form" method="post" action="login.php">
+        <form class="form-horizontal" role="form" method="post" id="login_form" action="">
             <div class="form-group">
                 <label for="firstname" class="col-sm-2 control-label" >用户</label>
                 <div class="col-sm-9">
-                    <input name="username"type="text" class="form-control" id="firstname"
+                    <input name="username" type="text" class="form-control" id="firstname"
                            placeholder="用户名" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="lastname" class="col-sm-2 control-label" >密码</label>
                 <div class="col-sm-9">
-                    <input name="password"type="password" class="form-control" id="lastname"
+                    <input name="password" type="password" class="form-control" id="password"
                            placeholder="密码" required>
                 </div>
             </div>
@@ -470,12 +474,37 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-9">
-                    <button type="submit" class="btn btn-primary btn-block">登录</button>
+                    <button type="button" id="login" class="btn btn-primary btn-block">登录</button>
                 </div>
+            </div>
+            <div class="alert alert-danger" style="display: none;">
+                <strong>错误!</strong> 用户名或密码错误
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    $(function(){
+        $("#login").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/index/login",
+                data: $("#login_form").serialize(),
+                dataType: "json",
+                success: function(data){
+                    temp = eval(data);
+                    if(temp.username == null){
+                        $(".alert").show();
+                    }else{
+                        window.location.href = temp.type + "/index.php?username=" + temp.username;
+                    }
+                }
+            })
+        })
+    })
+</script>
+
 <footer>
     <div class="container">
         <div class="social text-center">
@@ -503,16 +532,12 @@
 </section>
 <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
 
-<!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]-->
 <script src="js/modernizr-latest.js"></script>
-<script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/jquery.isotope.min.js" type="text/javascript"></script>
 <script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 <script src="js/jquery.nav.js" type="text/javascript"></script>
 <script src="js/jquery.cslider.js" type="text/javascript"></script>
-<script src="contact/jqBootstrapValidation.js"></script>
-<script src="contact/contact_me.js"></script>
 
 <script src="js/custom.js" type="text/javascript"></script>
 <script src="js/owl-carousel/owl.carousel.js"></script>
