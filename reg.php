@@ -6,10 +6,10 @@
 
     <!-- The stylesheet -->
     <link rel="stylesheet" href="css/stylereg.css" />
+    <link rel="stylesheet" href="css/toastr.min.css"/>
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/toastr.min.js"></script>
 </head>
 <style>
     #back{
@@ -60,6 +60,43 @@
     }
 </style>
 
+<script>
+    $(function(){
+        $("#reg").click(function(){
+            if($.trim($("#email").val()).length == 0){
+                alertTips("error", "用户名不能为空", "error");
+            }else if($.trim($("#password1").val()).length == 0){
+                alertTips("error", "密码不能为空", "error");
+            }else if($.trim($("#password2").val()).length == 0){
+                alertTips("error", "请确认密码", "error");
+            }else{
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8080/index/register",
+                    data: $("#reg_form").serialize(),
+                    dataType: "json",
+                    success: function(data){
+                        temp = eval(data);
+                        if(temp.state == "error"){
+                            alertTips("error", "出错了哦！你是不是做了坏事！", "error");
+                        }else if(temp.state == "exist"){
+                            alertTips("啊呀", "用户名已经被别人抢走了呢，重新起一个吧", "warning");
+                        }else if(temp.state == "success"){
+                            alertTips("success", "注册成功三秒后转跳到首页", "success");
+                            setTimeout(function(){
+                                window.location.href = "index.php";
+                            }, 3000);
+                        }
+                    },
+                    error: function(e){
+                        alertTips("error", "服务器坏掉了呢(┬＿┬)", "error");
+                    }
+                });
+            }
+        })
+    })
+</script>
+
 <body>
 <div id="container">
 
@@ -67,22 +104,13 @@
 
         <h1>注册</h1>
 
-        <form class="" method="post" action="client/register.php">
+        <form class="" method="post" id="reg_form" action="">
 
             <div class="row email">
-                <input type="text" id="email" name="email" placeholder="用户名" />
+                <input type="text" id="email" name="username" placeholder="用户名" />
             </div>
-            <?php
-            session_start();
-            if($_SESSION['errormsg']=="用户名重复"||$_SESSION['errormsg']=="数据库错误，请联系管理员"){
-                echo '<div class="alert alert-danger">';
-                echo "<strong>错误！</strong>".$_SESSION['errormsg'];
-                echo "</div>";
-                $_SESSION['errormsg'] = "";
-            }
-            ?>
             <div class="row pass">
-                <input type="password" id="password1" name="password1" placeholder="密码" />
+                <input type="password" id="password1" name="password" placeholder="密码" />
             </div>
 
             <div class="row pass">
@@ -95,16 +123,16 @@
 
             <p class="meterText">Password Meter</p>
 
-            <input type="submit" value="注册用户" />
+            <input type="button" id="reg" value="注册用户" />
             <a id="back"  href="index.php">返回</a>
         </form>
     </div>
 </div>
 
 <!-- JavaScript includes - jQuery, the complexify plugin and our own script.js -->
-<script src="js/jquery-1.7.2.min.js"></script>
+
 <script src="js/jquery.complexify.js"></script>
 <script src="js/script.js"></script>
-
+<script src="js/toastrfunction.js"></script>
 </body>
 </html>
