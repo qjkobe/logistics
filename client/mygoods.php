@@ -5,6 +5,7 @@
  * Time: 13:33
  */
 session_start();
+$menu = "goods";
 ?>
 <!doctype html>
 <html lang="en">
