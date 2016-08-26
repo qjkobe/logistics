@@ -3,7 +3,7 @@
         <ul class="nav" id="main-menu">
 
             <li>
-                <a class="<?php if($menu == "index") echo "active-menu"?>" href="index1.php"><i class="fa fa-dashboard"></i> 首页仪表盘</a>
+                <a class="<?php if($menu == "index") echo "active-menu"?>" href="index.php"><i class="fa fa-dashboard"></i> 首页仪表盘</a>
             </li>
             <li>
                 <a class="<?php if($menu == "goods") echo "active-menu"?>" href="goodslist.php"><i class="fa fa-desktop"></i> 物品信息</a>
@@ -51,7 +51,7 @@
                 </ul>
             </li>
             <li>
-                <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                <a id="logout" href="javascript:void();"><i class="fa fa-fw fa-file"></i> 登出</a>
             </li>
         </ul>
 

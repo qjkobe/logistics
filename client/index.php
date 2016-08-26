@@ -17,18 +17,13 @@ $_SESSION['id'] = $id;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>管理员后台管理界面</title>
-    <!-- Bootstrap Styles-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <?php
+    include_once "common/headjs.php"
+    ?>
 </head>
-
+<?php
+include_once "common/verify.php"
+?>
 <body>
 <div id="wrapper">
     <?php
@@ -46,7 +41,7 @@ $_SESSION['id'] = $id;
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        仪表盘 <small>欢迎你<?php echo $_GET['username']; ?></small>
+                        仪表盘 <small>欢迎你<?php echo $_SESSION['clientname']; ?></small>
                     </h1>
                 </div>
             </div>
@@ -168,20 +163,9 @@ $_SESSION['id'] = $id;
     <!-- /. PAGE WRAPPER  -->
 </div>
 <!-- /. WRAPPER  -->
-<!-- JS Scripts-->
-<!-- jQuery Js -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- Bootstrap Js -->
-<script src="assets/js/bootstrap.min.js"></script>
-<!-- Metis Menu Js -->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-<script src="assets/js/morris/morris.js"></script>
-<!-- Custom Js -->
-<script src="assets/js/custom-scripts.js"></script>
-
-
+    <?php
+    include_once "common/footjs.php"
+    ?>
 </body>
 
 </html>

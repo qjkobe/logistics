@@ -51,7 +51,7 @@
                 </ul>
             </li>
             <li>
-                <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                <a id="logout" href="javascript:void();"><i class="fa fa-fw fa-file"></i> 登出</a>
             </li>
         </ul>
 

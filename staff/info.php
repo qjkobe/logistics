@@ -17,22 +17,17 @@ $_SESSION['id']=$id;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>员工后台管理界面</title>
-    <!-- Bootstrap Styles-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <?php
+    include_once "common/headjs.php"
+    ?>
 </head>
-
+<?php
+include_once "common/verify.php"
+?>
 <body>
 <?php
 $username = $name = $mail = $phone = $contro = $avatar = "";
-$res = getdata($_SESSION["username"]);
+$res = getdata($_SESSION["staffname"]);
 if ($res == "没有此用户名") {
     echo "黑客异常";
 }else{
@@ -57,7 +52,7 @@ if ($res == "没有此用户名") {
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        个人信息 <small>欢迎你<?php echo $_SESSION['username']; ?></small>
+                        个人信息 <small>欢迎你<?php echo $_SESSION['staffname']; ?></small>
                     </h1>
                 </div>
             </div>
@@ -157,23 +152,9 @@ if ($res == "没有此用户名") {
 </div>
 <!-- /. PAGE WRAPPER  -->
 <!-- /. WRAPPER  -->
-<!-- JS Scripts-->
-<!-- jQuery Js -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- Bootstrap Js -->
-<script src="assets/js/bootstrap.min.js"></script>
-<!-- Metis Menu Js -->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<!-- DATA TABLE SCRIPTS -->
-<script src="assets/js/dataTables/jquery.dataTables.js"></script>
-<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#dataTables-example').dataTable();
-    });
-</script>
-<!-- Custom Js -->
-<script src="assets/js/custom-scripts.js"></script>
+<?php
+include_once "common/footjs.php"
+?>
 
 
 </body>
