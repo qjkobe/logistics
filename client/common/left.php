@@ -23,38 +23,42 @@
             </li>
 
 
-            <li>
-                <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">Second Level Link</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Link</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="#">Third Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Link</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-                </ul>
-            </li>
+<!--            <li>-->
+<!--                <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>-->
+<!--                <ul class="nav nav-second-level">-->
+<!--                    <li>-->
+<!--                        <a href="#">Second Level Link</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">Second Level Link</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">Second Level Link<span class="fa arrow"></span></a>-->
+<!--                        <ul class="nav nav-third-level">-->
+<!--                            <li>-->
+<!--                                <a href="#">Third Level Link</a>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <a href="#">Third Level Link</a>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <a href="#">Third Level Link</a>-->
+<!--                            </li>-->
+<!---->
+<!--                        </ul>-->
+<!---->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
             <li>
                 <a id="logout" href="javascript:void();"><i class="fa fa-fw fa-file"></i> 登出</a>
             </li>
         </ul>
-
     </div>
-
 </nav>
+<script>
+    $("#logout").click(function(){
+        <?php $_SESSION['clientname'] = "";?>
+        window.location.href = "../index.php";
+    })
+</script>

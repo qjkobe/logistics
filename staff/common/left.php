@@ -23,38 +23,54 @@
             </li>
 
 
+<!--            <li>-->
+<!--                <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>-->
+<!--                <ul class="nav nav-second-level">-->
+<!--                    <li>-->
+<!--                        <a href="#">Second Level Link</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">Second Level Link</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">Second Level Link<span class="fa arrow"></span></a>-->
+<!--                        <ul class="nav nav-third-level">-->
+<!--                            <li>-->
+<!--                                <a href="#">Third Level Link</a>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <a href="#">Third Level Link</a>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <a href="#">Third Level Link</a>-->
+<!--                            </li>-->
+<!---->
+<!--                        </ul>-->
+<!---->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
             <li>
-                <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">Second Level Link</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Link</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="#">Third Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Link</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="logout" href="javascript:void();"><i class="fa fa-fw fa-file"></i> 登出</a>
+                <a id="logout" href="javascript:void(0);"><i class="fa fa-fw fa-file"></i> 登出</a>
             </li>
         </ul>
-
     </div>
-
 </nav>
+<script>
+    $(function(){
+        $("#logout").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "function/logout.php",
+                dataType: "text",
+                data: {},
+                success: function(data){
+                    window.location.href = "../index.php";
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+                }
+            });
+        })
+    });
+</script>

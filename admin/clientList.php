@@ -94,7 +94,7 @@ include_once "common/verify.php"
 
 
         </div>
-        <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
+        <footer><p>版权所有 <a href="http://qjkobe.com">qjkobe</a></p></footer>
     </div>
     <!-- /. PAGE INNER  -->
 </div>

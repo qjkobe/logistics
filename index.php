@@ -494,7 +494,7 @@
                 dataType: "json",
                 success: function(data){
                     temp = eval(data);
-                    if(temp.username == null){
+                    if(temp.username == null || temp.username == ""){
                         $(".alert").show();
                     }else{
                         window.location.href = temp.type + "/index.php?username=" + temp.username;
