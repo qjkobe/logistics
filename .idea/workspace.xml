@@ -2,30 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59e71be4-a158-421d-9a35-03167ede8133" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/function/logout.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staff/common/logout.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/function/logout.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staff/function/logout.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/staff/common/logout.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/clientList.php" afterPath="$PROJECT_DIR$/admin/clientList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/left.php" afterPath="$PROJECT_DIR$/admin/common/left.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/orderlist.php" afterPath="$PROJECT_DIR$/admin/orderlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/staffInfo.php" afterPath="$PROJECT_DIR$/admin/staffInfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/staffList.php" afterPath="$PROJECT_DIR$/admin/staffList.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/common/left.php" afterPath="$PROJECT_DIR$/client/common/left.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/goodslist.php" afterPath="$PROJECT_DIR$/client/goodslist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/orderlist.php" afterPath="$PROJECT_DIR$/client/orderlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/clientInfo.php" afterPath="$PROJECT_DIR$/staff/clientInfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/clientList.php" afterPath="$PROJECT_DIR$/staff/clientList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/common/left.php" afterPath="$PROJECT_DIR$/staff/common/left.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/goodslist.php" afterPath="$PROJECT_DIR$/staff/goodslist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/info.php" afterPath="$PROJECT_DIR$/staff/info.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/orderlist.php" afterPath="$PROJECT_DIR$/staff/orderlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/后台管理/chart.html" afterPath="$PROJECT_DIR$/后台管理/chart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/后台管理/empty.html" afterPath="$PROJECT_DIR$/后台管理/empty.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/后台管理/form.html" afterPath="$PROJECT_DIR$/后台管理/form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/后台管理/tab-panel.html" afterPath="$PROJECT_DIR$/后台管理/tab-panel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/后台管理/table.html" afterPath="$PROJECT_DIR$/后台管理/table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/后台管理/ui-elements.html" afterPath="$PROJECT_DIR$/后台管理/ui-elements.html" />
     </list>
     <ignored path="logistics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,7 +42,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logout.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="logout.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/function/logout.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -74,8 +55,8 @@
       <file leaf-file-name="left.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/staff/common/left.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="358">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="75" selection-end-column="9" />
               <folding>
                 <marker date="1472399590702" expanded="true" signature="319:400" ph="..." />
                 <marker date="1472399590702" expanded="true" signature="489:575" ph="..." />
@@ -85,11 +66,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logout.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/staff/common/logout.php">
+      <file leaf-file-name="left.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/common/left.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="732">
+              <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logout.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/function/logout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logout.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/staff/function/logout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -110,8 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/index1.php" />
-        <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/staff/index1.php" />
         <option value="$PROJECT_DIR$/staff/infosava.php" />
         <option value="$PROJECT_DIR$/test.php" />
@@ -153,7 +152,6 @@
         <option value="$PROJECT_DIR$/staff/info.php" />
         <option value="$PROJECT_DIR$/staff/clientList.php" />
         <option value="$PROJECT_DIR$/admin/clientList.php" />
-        <option value="$PROJECT_DIR$/client/common/left.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/admin/orderlist.php" />
         <option value="$PROJECT_DIR$/staff/common/headjs.php" />
@@ -161,6 +159,9 @@
         <option value="$PROJECT_DIR$/admin/function/logout.php" />
         <option value="$PROJECT_DIR$/staff/common/left.php" />
         <option value="$PROJECT_DIR$/admin/common/left.php" />
+        <option value="$PROJECT_DIR$/staff/common/logout.php" />
+        <option value="$PROJECT_DIR$/client/common/logout.php" />
+        <option value="$PROJECT_DIR$/client/common/left.php" />
       </list>
     </option>
   </component>
@@ -290,6 +291,24 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logistics" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -304,6 +323,11 @@
     <property name="last_opened_file_path" value="D:/git/Git/bin/git.exe" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\appServ\www\logistics\staff\function" />
+      <recent name="D:\appServ\www\logistics\client\function" />
+      <recent name="D:\appServ\www\logistics\client\common" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\appServ\www\logistics\css" />
       <recent name="D:\appServ\www\logistics\js" />
@@ -386,12 +410,12 @@
       <workItem from="1471939089265" duration="3127000" />
       <workItem from="1472017595512" duration="4239000" />
       <workItem from="1472177565452" duration="9245000" />
-      <workItem from="1472377839796" duration="7829000" />
+      <workItem from="1472377839796" duration="8163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123502000" />
+    <option name="totallyTimeSpent" value="123836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -448,13 +472,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/common/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/login.php" />
     <entry file="file://$PROJECT_DIR$/admin/clientInfo.php" />
     <entry file="file://$PROJECT_DIR$/admin/staffsavemid.php">
@@ -478,6 +495,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="13830" column="4" selection-start-line="13830" selection-start-column="4" selection-end-line="13830" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -664,14 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/common/left.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="63" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/staffInfo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -760,6 +770,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/staff/function/logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/function/logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/common/left.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -774,8 +800,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/staff/common/left.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="358">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="75" selection-end-column="9" />
           <folding>
             <marker date="1472399590702" expanded="true" signature="319:400" ph="..." />
             <marker date="1472399590702" expanded="true" signature="489:575" ph="..." />
@@ -784,18 +810,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/staff/common/logout.php">
+    <entry file="file://$PROJECT_DIR$/client/function/logout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="44">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/function/logout.php">
+    <entry file="file://$PROJECT_DIR$/client/common/left.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="732">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
           <folding />
         </state>
       </provider>

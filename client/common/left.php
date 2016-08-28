@@ -51,14 +51,26 @@
 <!--                </ul>-->
 <!--            </li>-->
             <li>
-                <a id="logout" href="javascript:void();"><i class="fa fa-fw fa-file"></i> 登出</a>
+                <a id="logout" href="javascript:;"><i class="fa fa-fw fa-file"></i> 登出</a>
             </li>
         </ul>
     </div>
 </nav>
 <script>
-    $("#logout").click(function(){
-        <?php $_SESSION['clientname'] = "";?>
-        window.location.href = "../index.php";
-    })
+    $(function(){
+        $("#logout").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "function/logout.php",
+                dataType: "text",
+                data: {},
+                success: function(data){
+                    window.location.href = "../index.php";
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+                }
+            });
+        })
+    });
 </script>
