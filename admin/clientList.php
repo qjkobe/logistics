@@ -78,7 +78,7 @@ include_once "common/verify.php"
                                         echo "<td>".$res2['index']."</td>";
                                         echo "<td>".$res2['mail']."</td>";
                                         echo "<td>".'<img src="../'.$res2['avatar'].'" width=35 height=35>'."</td>";
-                                        echo "<td>".'<a href="#" class="btn btn-info">info</a>'."</td>";
+                                        echo "<td>".'<a href="#" class="btn btn-info disabled">info</a>'."</td>";
                                         echo "</tr>";
                                     }
                                     ?>

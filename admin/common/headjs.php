@@ -6,5 +6,6 @@
 <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
 <!-- Custom Styles-->
 <link href="assets/css/custom-styles.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-switch.min.css" rel="stylesheet"/>
 <!-- jQuery Js -->
 <script src="assets/js/jquery-1.10.2.js"></script>
