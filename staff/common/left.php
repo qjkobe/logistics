@@ -12,7 +12,7 @@
                 <a class="<?php if($menu == "clientinfo") echo "active-menu"?>" href="clientList.php"><i class="fa fa-bar-chart-o"></i> 客户信息</a>
             </li>
             <li>
-                <a class="<?php if($menu == "place") echo "active-menu"?>" href="#"><i class="fa fa-qrcode"></i> 地点信息</a>
+                <a class="<?php if($menu == "place") echo "active-menu"?>" href="placeList.php"><i class="fa fa-qrcode"></i> 地点信息</a>
             </li>
 
             <li>
