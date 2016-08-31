@@ -281,7 +281,7 @@ include_once "common/verify.php"
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Selects</label>
+                                <label>地点A</label>
                                 <select class="form-control chose-posi" id="namex" name="namex" >
 
                                 </select>
@@ -289,7 +289,7 @@ include_once "common/verify.php"
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Selects</label>
+                                <label>地点B</label>
                                 <select class="form-control chose-posi" id="namey" name="namey">
 
                                 </select>

@@ -7,7 +7,7 @@
 session_start();
 $menu = "info";
 include "function/function.php";
-$id = getId($_SESSION['username']);
+$id = getId($_SESSION['staffname']);
 $_SESSION['id']=$id;
 ?>
 <!DOCTYPE html>
@@ -69,7 +69,7 @@ if ($res == "没有此用户名") {
                                     <form role="form" method="post" action="infosava.php">
                                         <div class="form-group">
                                             <label>用户名</label>
-                                            <p class="form-control-static"><?php echo $_SESSION['username']; ?></p>
+                                            <p class="form-control-static"><?php echo $_SESSION['staffname']; ?></p>
                                         </div>
                                         <div class="form-group">
                                             <label>真实姓名</label>
@@ -124,9 +124,9 @@ if ($res == "没有此用户名") {
                                             $_SESSION['uploadError']="";
                                         }else if($_SESSION['path']!==""){
                                             echo '<div class="alert alert-success">';
-                                            echo "<strong>完成！</strong>"."刷新查看新头像";
+                                            echo "<strong>完成！</strong>"."<a onclick='window.location.reload();'>刷新</a>查看新头像";
                                             echo "</div>";
-                                            $tmp=setavatar($_SESSION['username'], $_SESSION['path']);
+                                            $tmp=setavatar($_SESSION['staffname'], $_SESSION['path']);
                                             $_SESSION['path'] = "";
                                         }
                                         ?>

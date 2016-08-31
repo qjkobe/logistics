@@ -7,7 +7,7 @@
 session_start();
 include "function/function.php";
 $menu = "index";
-$id = getId($_SESSION['username']);
+$id = getId($_SESSION['clientname']);
 $_SESSION['id'] = $id;
 ?>
 <!DOCTYPE html>

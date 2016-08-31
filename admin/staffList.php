@@ -49,6 +49,9 @@ include_once "common/verify.php"
                         <div class="panel-heading">
                             全部员工
                         </div>
+                        <button class="btn btn-primary add_position" data-toggle="modal" data-target="#PlaceModal" style="margin:10px 0 0 10px">
+                            添加员工
+                        </button>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">

@@ -23,8 +23,6 @@ include "function/function.php";
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
@@ -42,7 +40,7 @@ include "function/function.php";
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                        员工信息 <small>欢迎你<?php echo $_SESSION['username']; ?></small>
+                        员工信息 <small>欢迎你<?php echo $_SESSION['adminname']; ?></small>
                     </h1>
                 </div>
             </div>

@@ -46,7 +46,9 @@
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                <i class="fa fa-tasks fa-fw"></i>
+                <span class="badge badge-default">7</span>
+<!--                <i class="fa fa-caret-down"></i>-->
             </a>
             <ul class="dropdown-menu dropdown-tasks">
                 <li>

@@ -11,15 +11,12 @@
             <li>
                 <a class="<?php if($menu == "orderlist") echo "active-menu"?>" href="orderlist.php"><i class="fa fa-bar-chart-o"></i> 我的订单</a>
             </li>
-            <li>
-                <a class="<?php if($menu == "orderdetails") echo "active-menu"?>" href="#"><i class="fa fa-qrcode"></i> 订单详细</a>
-            </li>
+<!--            <li>-->
+<!--                <a class="--><?php //if($menu == "orderdetails") echo "active-menu"?><!--" href="#"><i class="fa fa-qrcode"></i> 订单详细</a>-->
+<!--            </li>-->
 
             <li>
-                <a class="<?php if($menu == "addgoods") echo "active-menu"?>" href="index.php"><i class="fa fa-table"></i> 物品提交</a>
-            </li>
-            <li>
-                <a class="<?php if($menu == "info") echo "active-menu"?>" href="#"><i class="fa fa-edit"></i> 个人信息修改 </a>
+                <a class="<?php if($menu == "info") echo "active-menu"?>" href="info.php"><i class="fa fa-edit"></i> 个人信息修改 </a>
             </li>
 
 

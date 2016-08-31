@@ -212,6 +212,23 @@ function getStaffdata($sid)
     }
 }
 
+function setavatar($username, $avatar)
+{
+    $conn = dbconn();
+    if ($conn->connect_error) {
+        die("Connetction failed: " . $conn->connect_error);
+    }
+    $sql = "update client set avatar='$avatar'"
+        . "where username='$username'";
+    if ($conn->query($sql) === true) {
+        $conn->close();
+        return "修改成功";
+    } else {
+        $conn->close();
+        return "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
 function getSId($username)
 {
     $conn = dbconn();
