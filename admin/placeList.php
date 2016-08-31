@@ -48,12 +48,12 @@ include_once "common/verify.php"
                         <div class="panel-heading">
                             地点距离
                         </div>
-                        <button class="btn btn-primary " data-toggle="modal" data-target="#myModal" style="margin:10px 0 0 10px">
+                        <button class="btn btn-primary add-distance" data-toggle="modal" data-target="#myModal" style="margin:10px 0 0 10px">
                             添加距离
                         </button>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="dataTables3-example">
                                     <thead>
                                     <tr>
                                         <th>地点A</th>
@@ -62,17 +62,8 @@ include_once "common/verify.php"
                                         <th>编辑</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>
-                                            <button class="btn btn-primary " data-toggle="modal" data-target="#myModal">
-                                                <i class="fa fa-edit"></i>编辑
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    <tbody id="place_list">
+
                                     </tbody>
                                 </table>
                             </div>
@@ -92,9 +83,10 @@ include_once "common/verify.php"
                         </button>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="dataTables2-example">
                                     <thead>
                                     <tr>
+                                        <th style="display: none"></th>
                                         <th>地点名</th>
                                         <th>频度</th>
                                         <th>状态</th>
@@ -134,12 +126,63 @@ include_once "common/verify.php"
                     strhtml = strhtml + "<td style='display: none;'>" + temp.place[i].id + "</td>";
                     strhtml = strhtml + "<td>" + temp.place[i].name + "</td>";
                     strhtml = strhtml + "<td>" + temp.place[i].frequence + "</td>";
-                    strhtml = strhtml + "<td>" + temp.place[i].isdelete + "</td>";
+                    if(temp.place[i].isdelete == 0){
+                        strhtml = strhtml + "<td style='color: green'>" + "<strong>开启</strong>" + "</td>";
+                    }else if(temp.place[i].isdelete == 1){
+                        strhtml = strhtml + "<td style='color: red'>" + "<strong>关闭</strong>" + "</td>";
+                    }
+
                     strhtml = strhtml + "<td>" + "<button class='btn btn-primary' onclick='editPosition($(this));' data-toggle='modal' data-target='#PlaceModal'>"
                         + "<i class='fa fa-edit'></i>编辑" + "</button>" + "</td>";
                     strhtml = strhtml + "</tr>";
                 }
                 $("#position_list").html(strhtml);
+                $('#dataTables2-example').dataTable();
+            },
+            error: function(){
+                alert("错误");
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/place/showPlace",
+            data: {},
+            dataType: "json",
+            success: function(data){
+                temp = eval(data);
+                var strhtml = "";
+                for(var i = 0; i < temp.place.length; i++){
+                    strhtml = strhtml + "<tr>";
+                    strhtml = strhtml + "<td style='display: none;'>" + temp.place[i].pid + "</td>";
+                    strhtml = strhtml + "<td>" + temp.place[i].namex + "</td>";
+                    strhtml = strhtml + "<td>" + temp.place[i].namey + "</td>";
+                    strhtml = strhtml + "<td>" + temp.place[i].distance + "</td>";
+
+                    strhtml = strhtml + "<td>" + "<button class='btn btn-primary' onclick='editDistance($(this));' data-toggle='modal' data-target='#myModal'>"
+                        + "<i class='fa fa-edit'></i>编辑" + "</button>" + "</td>";
+                    strhtml = strhtml + "</tr>";
+                }
+                $("#place_list").html(strhtml);
+                $('#dataTables3-example').dataTable();
+            },
+            error: function(){
+                alert("错误");
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/place/avaiPosition",
+            data: {},
+            dataType: "json",
+            success: function(data){
+                temp = eval(data);
+                var strhtml = "";
+                for(var i = 0; i < temp.place.length; i++){
+                    strhtml = strhtml + "<option>";
+                    strhtml = strhtml + temp.place[i].name;
+                    strhtml = strhtml + "</option>";
+                }
+                $(".chose-posi").html(strhtml);
             },
             error: function(){
                 alert("错误");
@@ -147,10 +190,18 @@ include_once "common/verify.php"
         });
         $(".add_position").click(function(){
             $("#Posi-actionFlag").val("add");
+            $("#Posi-id").val("");
             $("#Posi-frequence").val("0");
             $("#Posi-frequence2").val("0");
             $("#Posi-name").val("");
             $("#Posi-isdelete").bootstrapSwitch("state", false);
+        });
+        $(".add-distance").click(function(){
+            $("#Place-actionFlag").val("add");
+            $("#Place-id").val("");
+            $("#namex").val("");
+            $("#namey").val("");
+            $("#distance").val("");
         });
 
         $("#save_position").click(function(){
@@ -172,13 +223,33 @@ include_once "common/verify.php"
                     alert("错误");
                 }
             })
-        })
-    })
+        });
+        $("#save_place").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/place/editPlace",
+                data: $("#edit_Place").serialize(),
+                dataType: "json",
+                success: function(data){
+                    temp = eval(data);
+                    if(temp.state == "error"){
+                        alert("保存失败！");
+                    }else if(temp.state == "success"){
+                        alert("保存成功！");
+                        window.location.href = "placeList.php";
+                    }
+                },
+                error: function(){
+                    alert("错误");
+                }
+            })
+        });
+    });
     function editPosition(obj){
         $("#Posi-actionFlag").val("update");
         $("#Posi-id").val(obj.parent().parent().children("td").eq(0).html());
         $("#Posi-frequence").val(obj.parent().parent().children("td").eq(2).html());
-        $("#Posi-frequence2").val("0");
+        $("#Posi-frequence2").val(obj.parent().parent().children("td").eq(2).html());
         $("#Posi-name").val(obj.parent().parent().children("td").eq(1).html());
         var del = obj.parent().parent().children("td").eq(3).html();
         if(del == "0"){
@@ -186,6 +257,13 @@ include_once "common/verify.php"
         }else{
             $("#Posi-isdelete").bootstrapSwitch("state", false);
         }
+    }
+    function editDistance(obj){
+        $("#Place-actionFlag").val("update");
+        $("#Place-id").val(obj.parent().parent().children("td").eq(0).html());
+        $("#namex").val(obj.parent().parent().children("td").eq(1).html());
+        $("#namey").val(obj.parent().parent().children("td").eq(2).html());
+        $("#distance").val(obj.parent().parent().children("td").eq(3).html());
     }
 </script>
 
@@ -198,28 +276,22 @@ include_once "common/verify.php"
             </div>
             <div class="modal-body">
                 <form action="" id="edit_Place">
+                    <input type="hidden" name="id" id="Place-id" value="">
+                    <input type="hidden" name="actionFlag" id="Place-actionFlag">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Selects</label>
-                                <select class="form-control" name="namex">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <select class="form-control chose-posi" id="namex" name="namex" >
+
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Selects</label>
-                                <select class="form-control" name="namey">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <select class="form-control chose-posi" id="namey" name="namey">
+
                                 </select>
                             </div>
                         </div>
@@ -228,7 +300,7 @@ include_once "common/verify.php"
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>距离</label>
-                                <input class="form-control" placeholder="请输入距离" name="distance">
+                                <input class="form-control" placeholder="请输入距离" id="distance" name="distance">
                             </div>
                         </div>
                     </div>
