@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59e71be4-a158-421d-9a35-03167ede8133" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/assets/css/bootstrap-switch.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/assets/js/bootstrap-switch.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/infosava.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/header.php" afterPath="$PROJECT_DIR$/admin/common/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/placeList.php" afterPath="$PROJECT_DIR$/admin/placeList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/staffInfo.php" afterPath="$PROJECT_DIR$/admin/staffInfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/staffList.php" afterPath="$PROJECT_DIR$/admin/staffList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/common/footjs.php" afterPath="$PROJECT_DIR$/client/common/footjs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/common/headjs.php" afterPath="$PROJECT_DIR$/client/common/headjs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/common/left.php" afterPath="$PROJECT_DIR$/client/common/left.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/function/function.php" afterPath="$PROJECT_DIR$/client/function/function.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/goodslist.php" afterPath="$PROJECT_DIR$/client/goodslist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.php" afterPath="$PROJECT_DIR$/client/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/info.php" afterPath="$PROJECT_DIR$/client/info.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/orderlist.php" afterPath="$PROJECT_DIR$/client/orderlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/clientList.php" afterPath="$PROJECT_DIR$/staff/clientList.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/goodslist.php" afterPath="$PROJECT_DIR$/staff/goodslist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/index.php" afterPath="$PROJECT_DIR$/staff/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/info.php" afterPath="$PROJECT_DIR$/staff/info.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/orderlist.php" afterPath="$PROJECT_DIR$/staff/orderlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/前端/注册/reg.html" afterPath="$PROJECT_DIR$/前端/注册/reg.html" />
     </list>
     <ignored path="logistics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,30 +28,12 @@
       <file leaf-file-name="orderlist.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/orderlist.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="717">
-              <caret line="85" column="73" selection-start-line="85" selection-start-column="73" selection-end-line="85" selection-end-column="73" />
+            <state relative-caret-position="-38">
+              <caret line="85" column="88" selection-start-line="85" selection-start-column="88" selection-end-line="85" selection-end-column="88" />
               <folding>
-                <marker date="1472631037452" expanded="true" signature="3734:3748" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="3920:3934" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="4105:4117" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="5814:5870" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="5852:5860" ph="{...}" />
-                <marker date="1472631037452" expanded="true" signature="5989:8448" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="6020:8441" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="6056:8430" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="6095:6289" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="6326:8172" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="6375:8153" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="6737:7739" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="6784:7060" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="6837:7029" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="7107:7712" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="7160:7681" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="7324:7646" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="7777:8129" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="7825:8102" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="7874:8071" ph="..." />
-                <marker date="1472631037452" expanded="true" signature="8211:8415" ph="..." />
+                <marker date="1472632693579" expanded="true" signature="3831:3845" ph="..." />
+                <marker date="1472632693579" expanded="true" signature="4017:4031" ph="..." />
+                <marker date="1472632693579" expanded="true" signature="4202:4214" ph="..." />
               </folding>
             </state>
           </provider>
@@ -137,11 +99,11 @@
         <option value="$PROJECT_DIR$/client/infosava.php" />
         <option value="$PROJECT_DIR$/client/common/left.php" />
         <option value="$PROJECT_DIR$/client/index.php" />
-        <option value="$PROJECT_DIR$/staff/goodslist.php" />
         <option value="$PROJECT_DIR$/staff/index.php" />
         <option value="$PROJECT_DIR$/admin/staffInfo.php" />
         <option value="$PROJECT_DIR$/staff/clientList.php" />
         <option value="$PROJECT_DIR$/staff/orderlist.php" />
+        <option value="$PROJECT_DIR$/staff/goodslist.php" />
         <option value="$PROJECT_DIR$/client/orderlist.php" />
       </list>
     </option>
@@ -237,7 +199,39 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="staff" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logistics" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logistics" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="function" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -346,12 +340,12 @@
       <workItem from="1472377839796" duration="8231000" />
       <workItem from="1472449125616" duration="2538000" />
       <workItem from="1472535482721" duration="16072000" />
-      <workItem from="1472611441129" duration="15959000" />
+      <workItem from="1472611441129" duration="17600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158473000" />
+    <option name="totallyTimeSpent" value="160114000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -433,13 +427,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-330">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/orderlist.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -705,51 +692,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/function/function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="61" column="25" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="25" />
-          <folding>
-            <marker date="1472629704461" expanded="true" signature="304:373" ph="insert into client... " />
-            <marker date="1472629704461" expanded="true" signature="725:759" ph="delete from " />
-            <marker date="1472629704461" expanded="true" signature="1135:1187" ph="update clien... " />
-            <marker date="1472629704461" expanded="true" signature="1593:1729" ph="update clien... " />
-            <marker date="1472629704461" expanded="true" signature="2138:2185" ph="select * fro... client" />
-            <marker date="1472629704461" expanded="true" signature="2877:2914" ph="select * fro... client" />
-            <marker date="1472629704461" expanded="true" signature="3598:3645" ph="select * fro... client" />
-            <marker date="1472629704461" expanded="true" signature="4002:4049" ph="select * fro... client" />
-            <marker date="1472629704461" expanded="true" signature="4600:4647" ph="select * fro... client" />
-            <marker date="1472629704461" expanded="true" signature="5138:5168" ph="select * fro... staff" />
-            <marker date="1472629704461" expanded="true" signature="5863:5936" ph="update staff... " />
-            <marker date="1472629704461" expanded="true" signature="6301:6347" ph="select * fro... staff" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/staff/info.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="126" column="118" selection-start-line="126" selection-start-column="118" selection-end-line="126" selection-end-column="118" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/goodslist.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="187" selection-end-column="6" />
-          <folding>
-            <marker date="1472626601878" expanded="true" signature="5705:6707" ph="..." />
-            <marker date="1472626601878" expanded="true" signature="5752:6028" ph="..." />
-            <marker date="1472626601878" expanded="true" signature="5805:5997" ph="..." />
-            <marker date="1472626601878" expanded="true" signature="6075:6680" ph="..." />
-            <marker date="1472626601878" expanded="true" signature="6128:6649" ph="..." />
-            <marker date="1472626601878" expanded="true" signature="6292:6614" ph="..." />
-            <marker date="1472626601878" expanded="true" signature="6745:7097" ph="..." />
-            <marker date="1472626601878" expanded="true" signature="6793:7070" ph="..." />
-            <marker date="1472626601878" expanded="true" signature="6842:7039" ph="..." />
-            <marker date="1472626601878" expanded="true" signature="7179:7383" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -764,14 +711,6 @@
             <marker date="1472621941348" expanded="true" signature="4875:4885" ph="..." />
             <marker date="1472621941348" expanded="true" signature="5885:5899" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staff/goodslist.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,32 +796,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/orderlist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-258">
+          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/goodslist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="54" column="111" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/staff/goodslist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="145" column="45" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
+          <folding>
+            <marker date="1472632338871" expanded="true" signature="3317:3331" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/function/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-676">
+          <caret line="187" column="21" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="21" />
+          <folding>
+            <marker date="1472629704461" expanded="true" signature="304:373" ph="insert into client... " />
+            <marker date="1472629704461" expanded="true" signature="725:759" ph="delete from " />
+            <marker date="1472629704461" expanded="true" signature="1135:1187" ph="update clien... " />
+            <marker date="1472629704461" expanded="true" signature="1593:1729" ph="update clien... " />
+            <marker date="1472629704461" expanded="true" signature="2138:2185" ph="select * fro... client" />
+            <marker date="1472629704461" expanded="true" signature="2877:2914" ph="select * fro... client" />
+            <marker date="1472629704461" expanded="true" signature="3598:3645" ph="select * fro... client" />
+            <marker date="1472629704461" expanded="true" signature="4002:4049" ph="select * fro... client" />
+            <marker date="1472629704461" expanded="true" signature="4600:4647" ph="select * fro... client" />
+            <marker date="1472629704461" expanded="true" signature="5138:5168" ph="select * fro... staff" />
+            <marker date="1472629704461" expanded="true" signature="5863:5936" ph="update staff... " />
+            <marker date="1472629704461" expanded="true" signature="6301:6347" ph="select * fro... staff" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/orderlist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="85" column="73" selection-start-line="85" selection-start-column="73" selection-end-line="85" selection-end-column="73" />
+        <state relative-caret-position="-38">
+          <caret line="85" column="88" selection-start-line="85" selection-start-column="88" selection-end-line="85" selection-end-column="88" />
           <folding>
-            <marker date="1472631037452" expanded="true" signature="3734:3748" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="3920:3934" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="4105:4117" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="5814:5870" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="5852:5860" ph="{...}" />
-            <marker date="1472631037452" expanded="true" signature="5989:8448" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="6020:8441" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="6056:8430" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="6095:6289" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="6326:8172" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="6375:8153" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="6737:7739" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="6784:7060" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="6837:7029" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="7107:7712" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="7160:7681" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="7324:7646" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="7777:8129" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="7825:8102" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="7874:8071" ph="..." />
-            <marker date="1472631037452" expanded="true" signature="8211:8415" ph="..." />
+            <marker date="1472632693579" expanded="true" signature="3831:3845" ph="..." />
+            <marker date="1472632693579" expanded="true" signature="4017:4031" ph="..." />
+            <marker date="1472632693579" expanded="true" signature="4202:4214" ph="..." />
           </folding>
         </state>
       </provider>

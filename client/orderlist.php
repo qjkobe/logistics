@@ -61,9 +61,9 @@ include_once "common/verify.php"
                                     <thead>
                                     <tr>
                                         <th>订单id</th>
-                                        <th>员工id</th>
+                                        <th>员工</th>
                                         <th>物品id</th>
-                                        <th>路线id</th>
+                                        <th>路线</th>
                                         <th>价格</th>
                                         <th>下单时间</th>
                                         <th>订单状态</th>
@@ -83,7 +83,8 @@ include_once "common/verify.php"
                                             $res = searchOrder($oid[$i]);
                                             echo "<tr>";
                                             echo '<td>'.$oid[$i].'</td>';
-                                            echo '<td>'.$res['sid'].'</td>';
+                                            echo '<td>'.getStaffdata($res['sid'])['name'].'</td>';
+//                                            echo '<td>'.$res['sid'].'</td>';
                                             echo '<td>'.$res['gid'].'</td>';
                                             echo '<td>'.$res['rid'].'</td>';
                                             echo '<td>'.$res['expense'].'</td>';
@@ -127,61 +128,6 @@ include_once "common/verify.php"
 </div>
 <!-- /. PAGE WRAPPER  -->
 <!-- /. WRAPPER  -->
-<script>
-    $(".add_order").click(function(){
-
-    })
-</script>
-<div class="modal fade" id="OrderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">添加</h4>
-            </div>
-            <div class="modal-body">
-                <form action="" id="edit_Goods">
-                    <input type="hidden" name="oid" id="oid" value="">
-                    <input type="hidden" name="sid" id="sid" value="">
-                    <input type="hidden" name="clientName" value="<?php echo $_SESSION["clientname"] ?>">
-                    <input type="hidden" name="actionFlag" id="actionFlag">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>重量</label>
-                                <input class="form-control" placeholder="请输入重量" id="weight" name="weight">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>物品类型(ctrl多选)</label>
-                                <select multiple class="form-control chose-posi" id="type" name="type">
-                                    <option>易燃</option>
-                                    <option>易碎</option>
-                                    <option>易污</option>
-                                    <option>易腐</option>
-                                    <option>有毒</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="switch">
-                                <label for="isdelete">状态</label>
-                                <input type="checkbox" name="isdelete" id="isdelete" value="1"/>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" id="save_goods" class="btn btn-primary">保存</button>
-            </div>
-        </div>
-    </div>
-</div>
 <?php
 include_once "common/footjs.php"
 ?>
