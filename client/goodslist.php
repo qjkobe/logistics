@@ -64,6 +64,7 @@ include_once "common/verify.php"
                                         <th>重量</th>
                                         <th>类型</th>
                                         <th>状态</th>
+                                        <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -82,6 +83,7 @@ include_once "common/verify.php"
                                             echo '<td>'.$res['weight'].'</td>';
                                             echo '<td>'.$res['tid'].'</td>';
                                             echo '<td>'.$res['status'].'</td>';
+                                            echo '<td><button class="btn btn-info dest_edit"  data-toggle="modal" data-target="#" >添加目的地</button></td>';
                                             echo "</tr>";
                                         }
                                     }
@@ -130,6 +132,50 @@ include_once "common/verify.php"
                 },
                 error: function(){
                     alert("错误");
+                }
+            })
+        });
+        $(".dest_edit").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/client/getdest",
+                data: {
+                    gid: $(this).parent().parent().children("td").eq(0).html()
+                },
+                dataType: "json",
+                success: function(data){
+                    temp = eval(data);
+                    if(temp.state == "exist"){
+                        $("#static_info").html("你已经添加过地点了");
+                        $("#nickname").val(temp.dest.nickname);
+                        $("#dest").val(temp.dest.dest);
+                        $("#nickname").attr("readOnly", true);
+                        $("#dest").attr("disabled", true);
+                        $("#DestModal").modal();
+                    }else if(temp.state == "success"){
+                        $("#destactionFlag").val("add")
+                        $("#nickname").val("");
+                        $("#dest").val("");
+                        $("#gid").val($(this).parent().parent().children("td").eq(0).html());
+                        $("#DestModal").modal();
+                    }
+                }
+            })
+        });
+        $("#save_dest").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/client/editdest",
+                data: $("#edit_Dest").serialize(),
+                dataType: "json",
+                success: function(data){
+                    temp = eval(data);
+                    if(temp.state == "error"){
+                        alert("保存失败");
+                    }else if(temp.state == "success"){
+                        alert("保存成功");
+                        window.location.href = "goodslist.php";
+                    }
                 }
             })
         })
@@ -182,6 +228,47 @@ include_once "common/verify.php"
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 <button type="button" id="save_goods" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" id="edit_Dest">
+                    <input type="hidden" name="id" id="id" value="">
+                    <input type="hidden" name="clientName" value="<?php echo $_SESSION["clientname"] ?>">
+                    <input type="hidden" name="gid" id="gid" value="">
+                    <input type="hidden" name="actionFlag" id="destactionFlag">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>目的地</label>
+                                <input class="form-control" placeholder="请输入目的地" id="dest" name="dest">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>昵称</label>
+                                <input class="form-control" placeholder="请输入昵称" id="nickname" name="nickname">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-static" style="color: red" id="static_info">以上内容保存后不能修改</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" id="save_dest" class="btn btn-primary">保存</button>
             </div>
         </div>
     </div>
