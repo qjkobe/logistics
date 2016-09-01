@@ -62,7 +62,7 @@ include_once "common/verify.php"
                                         <th>重量</th>
                                         <th>类型</th>
                                         <th>待运状态</th>
-                                        <th>添加订单</th>
+                                        <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -83,7 +83,8 @@ include_once "common/verify.php"
                                             echo "<td>".$res['tid']."</td>";
                                             if($res['status'] == 0)
                                                 echo "<td>". "<strong style='color: #ff5f66'>待运</strong>" ."</td>";
-                                            echo "<td>"."<input type='button' class='btn btn-default add_order' data-toggle=\"modal\" data-target=\"#OrderModal\" value='添加'>"."</td>";
+                                            echo "<td>"."<input type='button' class='btn btn-default dest_info' data-toggle=\"modal\" data-target=\"#\" value='详细信息'>"
+                                                ."<input type='button' class='btn btn-default add_order' data-toggle=\"modal\" data-target=\"#OrderModal\" value='添加'>"."</td>";
                                             echo "</tr>";
                                         }
                                     }
@@ -109,7 +110,34 @@ include_once "common/verify.php"
 <script>
     $(".add_order").click(function(){
 
-    })
+    });
+    $(".dest_info").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/client/getdest",
+            data: {
+                gid: $(this).parent().parent().children("td").eq(0).html()
+            },
+            dataType: "json",
+            success: function(data){
+                temp = eval(data);
+                if(temp.state == "exist"){
+                    $("#static_info").html("你已经添加过地点了");
+                    $("#nickname").val(temp.dest.nickname);
+                    $("#dest").val(temp.dest.dest);
+                    $("#nickname").attr("readOnly", true);
+                    $("#dest").attr("disabled", true);
+                    $("#DestModal").modal();
+                }else if(temp.state == "success"){
+                    $("#destactionFlag").val("add")
+                    $("#nickname").val("");
+                    $("#dest").val("");
+                    $("#gid").val($(this).parent().parent().children("td").eq(0).html());
+                    $("#DestModal").modal();
+                }
+            }
+        })
+    });
 </script>
 <div class="modal fade" id="OrderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -124,7 +152,7 @@ include_once "common/verify.php"
                     <input type="hidden" name="sid" id="sid" value="">
                     <input type="hidden" name="cid" id="cid" value="">
                     <input type="hidden" name="cid" id="rid" value="">
-                    <input type="hidden" name="clientName" value="<?php echo $_SESSION["clientname"] ?>">
+                    <input type="hidden" name="staffName" value="<?php echo $_SESSION["staffname"] ?>">
                     <input type="hidden" name="actionFlag" id="actionFlag">
                     <div class="row">
                         <div class="col-md-6">
@@ -157,6 +185,47 @@ include_once "common/verify.php"
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 <button type="button" id="save_goods" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" id="edit_Dest">
+                    <input type="hidden" name="id" id="id" value="">
+                    <input type="hidden" name="clientName" value="<?php echo $_SESSION["clientname"] ?>">
+                    <input type="hidden" name="gid" id="gid" value="">
+                    <input type="hidden" name="actionFlag" id="destactionFlag">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>目的地</label>
+                                <input class="form-control" placeholder="用户尚未提交" readonly id="dest" name="dest">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>昵称</label>
+                                <input class="form-control" placeholder="用户尚未提交" readonly id="nickname" name="nickname">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-static" style="color: red" id="static_info">以上内容保存后不能修改</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" id="save_dest" class="btn btn-primary">保存</button>
             </div>
         </div>
     </div>
