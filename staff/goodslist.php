@@ -157,7 +157,7 @@ include_once "common/verify.php"
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>重量</label>
+                                <label>金额</label>
                                 <input class="form-control" placeholder="请输入金额" id="weight" name="weight">
                             </div>
                         </div>
@@ -169,8 +169,8 @@ include_once "common/verify.php"
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>选择系统推荐的路线(ctrl多选)</label>
-                                <select multiple class="form-control chose-posi" id="rid" name="rid">
+                                <label>选择系统推荐的路线</label>
+                                <select class="form-control chose-posi" id="rid" name="rid">
                                     <option>易燃</option>
                                     <option>易碎</option>
                                     <option>易污</option>
