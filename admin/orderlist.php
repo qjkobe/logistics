@@ -83,7 +83,12 @@ include_once "common/verify.php"
                                         echo '<td>'.$Orderinfo['rid'].'</td>';
                                         echo '<td>'.$Orderinfo['expense'].'</td>';
                                         echo '<td>'.$Orderinfo['xiadantime'].'</td>';
-                                        echo '<td>'.$Orderinfo['status'].'</td>';
+                                        if($Orderinfo['status'] == 0)
+                                            echo '<td>'. '<strong style="color: #ff8269">等待接收</strong>' .'</td>';
+                                        if($Orderinfo['status'] == 1)
+                                            echo '<td>'. '<strong style="color: #a6c5ff">正在进行</strong>' .'</td>';
+                                        if($Orderinfo['status'] == 2)
+                                            echo '<td>'.'<strong style="color: green">执行完成</strong>'.'</td>';
                                         echo '<td>'.$Orderinfo['destination'].'</td>';
                                         echo '</tr>';
                                     }
