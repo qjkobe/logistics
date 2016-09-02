@@ -97,13 +97,9 @@ include_once "common/verify.php"
                                                 echo '<td>'.'<strong style="color: green">执行完成</strong>'.'</td>';
                                             echo '<td>'.$res['destination'].'</td>';
                                             if($res['status'] == 1)
-                                                echo "<td><button class='btn btn-info' id='orderinfo'>正在进行</button></td>";
+                                                echo "<td><button class='btn btn-info order_finish'>已到货</button></td>";
                                             if($res['status'] == 0)
-                                                echo "<td><form method='post' action='orderaccept.php'>" .
-                                                    "<input type='hidden' name='oid' value='$oid[$i]'>" .
-                                                    "<input type='hidden' name='gid' value='$gid[$i]'>" .
-                                                    "<input type='submit' class='btn btn-success' value='接受'>" .
-                                                    "</form></td>";
+                                                echo "<td><button class='btn btn-success order_accept'>接受</button></td>";
                                             if($res['status'] == 2)
                                                 echo "<td><button class='btn btn-success' disabled>已完成</button></td>";
                                             echo "</tr>";
@@ -128,6 +124,54 @@ include_once "common/verify.php"
 </div>
 <!-- /. PAGE WRAPPER  -->
 <!-- /. WRAPPER  -->
+<script>
+    $(function(){
+        $(".order_accept").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/order/acceptOrder",
+                data: {
+                    oid: $(this).parent().parent().children("td").eq(0).html()
+                },
+                dataType: "json",
+                success: function(data){
+                    temp = eval(data);
+                    if(temp.state == "success"){
+                        alert("接受订单成功！");
+                        window.location.href = "orderlist.php";
+                    }else{
+                        alert("失败");
+                    }
+                },
+                error: function(){
+                    alert("错误");
+                }
+            });
+        });
+        $(".order_finish").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/order/finishOrder",
+                data: {
+                    oid: $(this).parent().parent().children("td").eq(0).html()
+                },
+                dataType: "json",
+                success: function(data){
+                    temp = eval(data);
+                    if(temp.state == "success"){
+                        alert("订单已完成！");
+                        window.location.href = "orderlist.php";
+                    }else{
+                        alert("失败");
+                    }
+                },
+                error: function(){
+                    alert("错误");
+                }
+            })
+        })
+    });
+</script>
 <?php
 include_once "common/footjs.php"
 ?>

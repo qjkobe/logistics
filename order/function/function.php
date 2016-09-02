@@ -163,7 +163,7 @@ function searchOrder($oid)
     if ($conn->connect_error) {
         die("Connetction failed: " . $conn->connect_error);
     }
-    $sql = "select * from orderlist where oid=$oid";
+    $sql = "select * from orderlist where oid='$oid'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $orderlist = array();
