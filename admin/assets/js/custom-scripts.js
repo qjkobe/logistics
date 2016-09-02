@@ -66,14 +66,14 @@
             Morris.Donut({
                 element: 'morris-donut-chart',
                 data: [{
-                    label: "Download Sales",
-                    value: 12
+                    label: "易燃",
+                    value: 1
                 }, {
-                    label: "In-Store Sales",
-                    value: 30
+                    label: "易碎",
+                    value: 1
                 }, {
-                    label: "Mail-Order Sales",
-                    value: 20
+                    label: "易腐",
+                    value: 0
                 }],
                 resize: true
             });

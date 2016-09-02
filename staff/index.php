@@ -24,6 +24,26 @@ $_SESSION['id']=$id;
 <?php
 include_once "common/verify.php"
 ?>
+<script>
+    $(function(){
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/staff/getperformance",
+            data: {
+                username: "<?php echo $_SESSION['staffname']?>"
+            },
+            dataType: "json",
+            success: function(data){
+                temp = eval(data);
+                if(temp.state == "error"){
+                    alert("异常错误，获取用户信息失败");
+                }else if(temp.state == "success"){
+                    $("#performance").html(temp.performance);
+                }
+            }
+        })
+    })
+</script>
 <body>
 <div id="wrapper">
     <?php
@@ -64,7 +84,7 @@ include_once "common/verify.php"
                     <div class="panel panel-primary text-center no-boder bg-color-blue">
                         <div class="panel-body">
                             <i class="fa fa-shopping-cart fa-5x"></i>
-                            <h3>12,160 </h3>
+                            <h3 id="performance"> </h3>
                         </div>
                         <div class="panel-footer back-footer-blue">
                             我的业绩
@@ -105,7 +125,7 @@ include_once "common/verify.php"
                 <div class="col-md-9 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Bar Chart Example
+                            年业绩图表
                         </div>
                         <div class="panel-body">
                             <div id="morris-bar-chart"></div>
@@ -115,7 +135,7 @@ include_once "common/verify.php"
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Donut Chart Example
+                            物品类型饼图
                         </div>
                         <div class="panel-body">
                             <div id="morris-donut-chart"></div>

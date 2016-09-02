@@ -53,7 +53,7 @@ include_once "common/verify.php"
                 <div class="col-md-9 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Bar Chart Example
+                            年业绩图表
                         </div>
                         <div class="panel-body">
                             <div id="morris-bar-chart"></div>
@@ -63,7 +63,7 @@ include_once "common/verify.php"
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Donut Chart Example
+                            物品类型饼图
                         </div>
                         <div class="panel-body">
                             <div id="morris-donut-chart"></div>
