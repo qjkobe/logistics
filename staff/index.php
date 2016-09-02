@@ -216,12 +216,9 @@ include_once "common/verify.php"
                                             echo "<td>".$res2['username']."</td>";
                                             echo "<td>".$res['weight']."</td>";
                                             echo "<td>".$res['tid']."</td>";
-                                            echo "<td>".$res['status']."</td>";
-                                            echo "<td><form method='post'action='orderadd.php'> " .
-                                                "<input type='hidden' name='gid' value='$gid[$i]'>" .
-                                                "<input type='hidden' name='cid' value='".$res['cid']."'>" .
-                                                "<input type='submit' class='btn btn-default' value='添加'>" .
-                                                "</form></td>";
+                                            if($res['status'] == 0)
+                                                echo "<td>". "<strong style='color: #ff5f66'>待运</strong>" ."</td>";
+                                            echo "<td><a type='submit' class='btn btn-default' href='goodslist.php'>添加</a></td>";
                                             echo "</tr>";
                                         }
                                     }

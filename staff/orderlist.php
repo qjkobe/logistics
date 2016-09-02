@@ -16,7 +16,7 @@ $_SESSION['id']=$id;
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>管理员后台管理界面</title>
+    <title>员工后台管理界面</title>
     <?php
     include_once "common/headjs.php"
     ?>
