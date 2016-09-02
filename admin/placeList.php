@@ -89,6 +89,7 @@ include_once "common/verify.php"
                                         <th style="display: none"></th>
                                         <th>地点名</th>
                                         <th>频度</th>
+                                        <th style="display: none"></th>
                                         <th>状态</th>
                                         <th>编辑</th>
                                     </tr>
@@ -126,6 +127,7 @@ include_once "common/verify.php"
                     strhtml = strhtml + "<td style='display: none;'>" + temp.place[i].id + "</td>";
                     strhtml = strhtml + "<td>" + temp.place[i].name + "</td>";
                     strhtml = strhtml + "<td>" + temp.place[i].frequence + "</td>";
+                    strhtml = strhtml + "<td style='display: none'>" + temp.place[i].isdelete + "</td>";
                     if(temp.place[i].isdelete == 0){
                         strhtml = strhtml + "<td style='color: green'>" + "<strong>开启</strong>" + "</td>";
                     }else if(temp.place[i].isdelete == 1){
