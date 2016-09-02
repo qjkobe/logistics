@@ -59,6 +59,7 @@ include_once "common/verify.php"
                                     <tr>
                                         <th>物品id</th>
                                         <th>客户姓名</th>
+                                        <th style="display: none">客户id</th>
                                         <th>重量</th>
                                         <th>类型</th>
                                         <th>待运状态</th>
@@ -73,12 +74,13 @@ include_once "common/verify.php"
                                         echo "<div class=\"alert alert-warning\">";
                                         echo "<strong>遗憾！</strong> 没有待处理物品啦！</div>";
                                     } else {
-                                        for ($i = 0; $i < count($gid)&&$i<5; $i++) {
+                                        for ($i = 0; $i < count($gid) && $i<5; $i++) {
                                             echo "<tr>";
                                             $res = getGoods($gid[$i]);
                                             $res2 = getClientdata($res['cid']);
                                             echo "<td>".$gid[$i]."</td>";
                                             echo "<td>".$res2['username']."</td>";
+                                            echo "<td style='display: none'>" . $res['cid'] . "</td>";
                                             echo "<td>".$res['weight']."</td>";
                                             echo "<td>".$res['tid']."</td>";
                                             if($res['status'] == 0)
@@ -110,8 +112,34 @@ include_once "common/verify.php"
 <script>
     $(function(){
         $(".add_order").click(function(){
-            $("#sid");
+            $("#rid").html('<option value="empty">请先输入目的地</option>');
+            $("#cid").val($(this).parent().parent().children("td").eq(2).html());
+            $("#destination").val("");
+            $("#expense").val("");
+            $("#gid").val($(this).parent().parent().children("td").eq(0).html());
         });
+        $("#save_order").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/order/addOrder",
+                data: $("#edit_Order").serialize(),
+                dataType: "json",
+                success: function(data){
+                    temp = eval(data);
+                    if(temp.state == "error"){
+                        alert("请输入正确的信息");
+                    }else if(temp.state == "success"){
+                        alert("保存成功");
+                        window.location.href = "goodslist.php";
+                    }else if(temp.state == "exist"){
+                        alert("订单已被用户确认");
+                    }
+                },
+                error: function(){
+                    alert("错误");
+                }
+            })
+        })
         $(".dest_info").click(function(){
             $.ajax({
                 type: "POST",
@@ -123,18 +151,13 @@ include_once "common/verify.php"
                 success: function(data){
                     temp = eval(data);
                     if(temp.state == "exist"){
-                        $("#static_info").html("你已经添加过地点了");
                         $("#nickname").val(temp.dest.nickname);
                         $("#dest").val(temp.dest.dest);
                         $("#nickname").attr("readOnly", true);
                         $("#dest").attr("disabled", true);
                         $("#DestModal").modal();
                     }else if(temp.state == "success"){
-                        $("#destactionFlag").val("add")
-                        $("#nickname").val("");
-                        $("#dest").val("");
-                        $("#gid").val($(this).parent().parent().children("td").eq(0).html());
-                        $("#DestModal").modal();
+                        alert("客户尚未添加地点");
                     }
                 }
             })
@@ -170,17 +193,18 @@ include_once "common/verify.php"
                 <h4 class="modal-title" id="myModalLabel">添加</h4>
             </div>
             <div class="modal-body">
-                <form action="" id="edit_Goods">
+                <form action="" id="edit_Order">
                     <input type="hidden" name="oid" id="oid" value="">
                     <input type="hidden" name="sid" id="sid" value="">
                     <input type="hidden" name="cid" id="cid" value="">
+                    <input type="hidden" name="gid" id="gid" value="">
                     <input type="hidden" name="staffName" value="<?php echo $_SESSION["staffname"] ?>">
                     <input type="hidden" name="actionFlag" id="actionFlag">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>金额</label>
-                                <input class="form-control" placeholder="请输入金额" id="weight" name="weight">
+                                <input class="form-control" placeholder="请输入金额" id="expense" name="expense">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -197,12 +221,17 @@ include_once "common/verify.php"
                                 </select>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-static" style="color: red" id="static_info">你的第二次添加会覆盖之前的订单，已被确认的不会被修改，会返回失败</label>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" id="save_goods" class="btn btn-primary">保存</button>
+                <button type="button" id="save_order" class="btn btn-primary">保存</button>
             </div>
         </div>
     </div>
@@ -218,7 +247,7 @@ include_once "common/verify.php"
                 <form action="" id="edit_Dest">
                     <input type="hidden" name="id" id="id" value="">
                     <input type="hidden" name="clientName" value="<?php echo $_SESSION["clientname"] ?>">
-                    <input type="hidden" name="gid" id="gid" value="">
+                    <input type="hidden" name="gid" value="">
                     <input type="hidden" name="actionFlag" id="destactionFlag">
                     <div class="row">
                         <div class="col-md-12">
@@ -235,7 +264,7 @@ include_once "common/verify.php"
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label class="form-control-static" style="color: red" id="static_info">以上内容保存后不能修改</label>
+<!--                                <label class="form-control-static" style="color: red" id="static_info">以上内容保存后不能修改</label>-->
                             </div>
                         </div>
                     </div>

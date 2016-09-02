@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59e71be4-a158-421d-9a35-03167ede8133" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/goodslist.php" afterPath="$PROJECT_DIR$/staff/goodslist.php" />
     </list>
     <ignored path="logistics.iws" />
@@ -28,11 +27,23 @@
       <file leaf-file-name="goodslist.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/staff/goodslist.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="112" column="22" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+            <state relative-caret-position="1400">
+              <caret line="249" column="51" selection-start-line="249" selection-start-column="51" selection-end-line="249" selection-end-column="51" />
               <folding>
-                <marker date="1472788049824" expanded="true" signature="3315:3329" ph="..." />
+                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1472789992926" expanded="true" signature="3152:3165" ph="..." />
+                <marker date="1472789992926" expanded="true" signature="3496:3510" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goodslist.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/goodslist.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="148" column="35" selection-start-line="148" selection-start-column="35" selection-end-line="148" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -322,12 +333,12 @@
       <workItem from="1472535482721" duration="16072000" />
       <workItem from="1472611441129" duration="18450000" />
       <workItem from="1472715255036" duration="7964000" />
-      <workItem from="1472781905041" duration="1948000" />
+      <workItem from="1472781905041" duration="3926000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170876000" />
+    <option name="totallyTimeSpent" value="172854000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -524,6 +535,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -741,17 +753,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/goodslist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="137" column="21" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="21" />
+        <state relative-caret-position="256">
+          <caret line="148" column="35" selection-start-line="148" selection-start-column="35" selection-end-line="148" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/staff/goodslist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="112" column="22" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+        <state relative-caret-position="1400">
+          <caret line="249" column="51" selection-start-line="249" selection-start-column="51" selection-end-line="249" selection-end-column="51" />
           <folding>
-            <marker date="1472788049824" expanded="true" signature="3315:3329" ph="..." />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1472789992926" expanded="true" signature="3152:3165" ph="..." />
+            <marker date="1472789992926" expanded="true" signature="3496:3510" ph="..." />
           </folding>
         </state>
       </provider>
