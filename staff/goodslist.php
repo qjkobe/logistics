@@ -108,34 +108,57 @@ include_once "common/verify.php"
 <!-- /. PAGE WRAPPER  -->
 <!-- /. WRAPPER  -->
 <script>
-    $(".add_order").click(function(){
-
-    });
-    $(".dest_info").click(function(){
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:8080/client/getdest",
-            data: {
-                gid: $(this).parent().parent().children("td").eq(0).html()
-            },
-            dataType: "json",
-            success: function(data){
-                temp = eval(data);
-                if(temp.state == "exist"){
-                    $("#static_info").html("你已经添加过地点了");
-                    $("#nickname").val(temp.dest.nickname);
-                    $("#dest").val(temp.dest.dest);
-                    $("#nickname").attr("readOnly", true);
-                    $("#dest").attr("disabled", true);
-                    $("#DestModal").modal();
-                }else if(temp.state == "success"){
-                    $("#destactionFlag").val("add")
-                    $("#nickname").val("");
-                    $("#dest").val("");
-                    $("#gid").val($(this).parent().parent().children("td").eq(0).html());
-                    $("#DestModal").modal();
+    $(function(){
+        $(".add_order").click(function(){
+            $("#sid");
+        });
+        $(".dest_info").click(function(){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/client/getdest",
+                data: {
+                    gid: $(this).parent().parent().children("td").eq(0).html()
+                },
+                dataType: "json",
+                success: function(data){
+                    temp = eval(data);
+                    if(temp.state == "exist"){
+                        $("#static_info").html("你已经添加过地点了");
+                        $("#nickname").val(temp.dest.nickname);
+                        $("#dest").val(temp.dest.dest);
+                        $("#nickname").attr("readOnly", true);
+                        $("#dest").attr("disabled", true);
+                        $("#DestModal").modal();
+                    }else if(temp.state == "success"){
+                        $("#destactionFlag").val("add")
+                        $("#nickname").val("");
+                        $("#dest").val("");
+                        $("#gid").val($(this).parent().parent().children("td").eq(0).html());
+                        $("#DestModal").modal();
+                    }
                 }
-            }
+            })
+        });
+        $("#destination").blur(function(){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/order/getRoute",
+                data: {
+                    destination: $("#destination").val()
+                },
+                dataType: "json",
+                success: function(data){
+                    temp = eval(data);
+                    if(temp.state == "error"){
+                        alert("请输入正确的目的地");
+                    }else if(temp.state == "success"){
+                        $("#rid").html("<option value='" + temp.route.rid + "'>" + temp.route.place + "</option>");
+                    }
+                },
+                error: function(){
+                    alert("错误");
+                }
+            });
         })
     });
 </script>
@@ -151,7 +174,6 @@ include_once "common/verify.php"
                     <input type="hidden" name="oid" id="oid" value="">
                     <input type="hidden" name="sid" id="sid" value="">
                     <input type="hidden" name="cid" id="cid" value="">
-                    <input type="hidden" name="cid" id="rid" value="">
                     <input type="hidden" name="staffName" value="<?php echo $_SESSION["staffname"] ?>">
                     <input type="hidden" name="actionFlag" id="actionFlag">
                     <div class="row">
@@ -171,11 +193,7 @@ include_once "common/verify.php"
                             <div class="form-group">
                                 <label>选择系统推荐的路线</label>
                                 <select class="form-control chose-posi" id="rid" name="rid">
-                                    <option>易燃</option>
-                                    <option>易碎</option>
-                                    <option>易污</option>
-                                    <option>易腐</option>
-                                    <option>有毒</option>
+                                    <option value="empty">请先输入目的地</option>
                                 </select>
                             </div>
                         </div>
